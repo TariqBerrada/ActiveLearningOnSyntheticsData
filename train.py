@@ -17,6 +17,6 @@ data_train, data_test = split(data, perc = .75)
 model = Classifier(input_dim = 2, output_dim = 3).to('cpu')
 model.device = 'cpu'
 optimizer = torch.optim.Adam(model.parameters(), lr = 1e-2)
-criterion = torch.nn.CrossEntropyLoss()
+criterion = torch.nn.CrossEntropyLoss(reduction='none')
 
-train(model, data_train, data_test, optimizer, criterion, n_epochs = 20)
+train(model, data_train, data_test, optimizer, criterion, n_epochs = 60)
